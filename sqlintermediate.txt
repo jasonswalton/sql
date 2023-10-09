@@ -3,7 +3,7 @@
 
 Insert into EmployeeDemographics VALUES
 (1011, 'Ryan', 'Howard', 26, 'Male'),
-(NULL, 'Holly', 'Flax', NULL, 'Male'),
+(NULL, 'Holly', 'Flax', NULL, NULL),
 (1013, 'Darryl', 'Philbin', NULL, 'Male')
 
 Insert into EmployeeSalary VALUES
@@ -182,3 +182,17 @@ ON EmployeeDemographics.EmployeeID = EmployeeSalary.EmployeeID
 GROUP BY JobTitle
 HAVING AVG(Salary) > 45000
 ORDER BY AVG(Salary)
+
+UPDATE EmployeeDemographics
+SET EmployeeID = 1012
+WHERE FirstName = 'Holly' AND LastName = 'Flax'
+
+UPDATE EmployeeDemographics
+SET Age = 31, Gender = 'Female'
+WHERE FirstName = 'Holly' AND LastName = 'Flax'
+
+SELECT * FROM EmployeeDemographics
+WHERE EmployeeID = 1013
+
+DELETE FROM EmployeeDemographics
+WHERE EmployeeID = 1013
