@@ -196,3 +196,17 @@ WHERE EmployeeID = 1013
 
 DELETE FROM EmployeeDemographics
 WHERE EmployeeID = 1013
+
+SELECT FirstName + ' ' + LastName AS FullName
+FROM EmployeeDemographics
+
+SELECT AVG(Age) AS AvgAge
+FROM EmployeeDemographics
+
+SELECT ED.LastName
+FROM EmployeeDemographics AS ED
+
+SELECT EDemo.EmployeeID, ESal.Salary
+FROM EmployeeDemographics AS EDemo
+JOIN EmployeeSalary AS ESal
+ON EDemo.EmployeeID = ESal.EmployeeID
