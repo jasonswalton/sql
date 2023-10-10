@@ -210,3 +210,15 @@ SELECT EDemo.EmployeeID, ESal.Salary
 FROM EmployeeDemographics AS EDemo
 JOIN EmployeeSalary AS ESal
 ON EDemo.EmployeeID = ESal.EmployeeID
+
+SELECT Gender, COUNT(Gender)
+FROM EmployeeDemographics dem
+JOIN EmployeeSalary sal
+ON dem.EmployeeID = sal.EmployeeID
+GROUP BY Gender
+
+SELECT FirstName, LastName, Gender, Salary,
+COUNT(Gender) OVER (PARTITION BY Gender) AS TotalGender
+FROM EmployeeDemographics dem
+JOIN EmployeeSalary sal
+ON dem.EmployeeID = sal.EmployeeID
